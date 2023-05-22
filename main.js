@@ -1,24 +1,10 @@
 "use strict"
-const coffeeList = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
-];
+//<----------------------------------Pulling data from local Storage-------------------------------------------->
 const coffeeStrings = localStorage.getItem('renderCoffees', );
 console.log(coffeeStrings);
 const coffeesList = JSON.parse(coffeeStrings);
 console.log(coffeesList);
+//<----------------------Initializing Coffee list------------------------------------------------------------------->
 var coffees;
 if (coffeesList !== null) {
     coffees = coffeesList;
@@ -42,24 +28,7 @@ else {
     ];
 }
 console.log(coffees);
-
-/*let coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
-];*/
-
+//<--------------------------------Sort Coffee by Id--------------------------------------------------------->
 coffees.sort(function(a, b) {
     if (a.id > b.id) {
         return -1;
@@ -70,6 +39,7 @@ coffees.sort(function(a, b) {
     }
 });
 console.log(coffees);
+//<----------------------------------Rendering Coffee List for display-------------------------------------------------->
 function renderCoffee(coffee) {
     let html = '<ul class="coffee col-6">';
     html += '<li>' + coffee.id + '</li>';
@@ -86,6 +56,7 @@ function renderCoffees(coffees) {
     }
     return html;
 }
+//<-----------------------------Roast selection------------------------------------------------------------->
 let roastSelection = document.getElementById('roast-selection');
 roastSelection.addEventListener('change', function updateCoffees(e){
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -102,7 +73,7 @@ roastSelection.addEventListener('change', function updateCoffees(e){
     tbody.innerHTML = renderCoffees(filteredCoffees);
 
 });
-
+//<--------------------------------Search Box--------------------------------------------------------------------->
 let searchBox = document.getElementById('search');
 searchBox.addEventListener('keyup', function searchCoffees() {
     let searchCoffeeName = searchBox.value.toUpperCase();

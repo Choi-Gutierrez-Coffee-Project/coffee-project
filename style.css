@@ -1,20 +1,30 @@
 
 body{
     margin: 0;
-
+    background: linear-gradient(to top, #e6b980  0%, white 100%);
 }
 .allContainer{
     margin:10px;
 
-} ul{
+}
+#leftSideBackground{
+    background-image: url("img/img3.jpg");
+    background-size: 650px 700px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    margin-left: 40px;
+}
+ul{
       display: flex;
       width: 100%;
       align-items: center;
       justify-content: center;
   }
 .coffeeTable{
-    background-image: url("img/img3.jpg");
-    background-size: cover;
+
+    align-self: center;
+    justify-self: center;
+    align-items: center;
 }
 span {
     display: flex;
@@ -62,7 +72,7 @@ select{
     height: 40px;
     border-radius: 10px;
     padding-left: 10px;
-    box-shadow: 5px 10px 8px dodgerblue;
+    box-shadow: 5px 10px 8px #4b371C;
     margin: 10px 0;
 
 }
@@ -71,7 +81,8 @@ select{
     height: 40px;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 5px 10px 8px dodgerblue;
+    box-shadow: 5px 10px 8px #4b371C;
+    border: 1px black;
 
 }
 #addName{
@@ -79,12 +90,12 @@ select{
     height: 40px;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 5px 10px 8px dodgerblue;
+    box-shadow: 5px 10px 8px #4b371C;
 }
 .button{
     width: 100%;
     margin: 14px 0;
-    box-shadow: 5px 10px 8px dodgerblue;
+    box-shadow: 5px 10px 8px #4b371C;
 }
 label{
     margin: 10px 0 0 5px;
